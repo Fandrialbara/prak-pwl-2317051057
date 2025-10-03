@@ -2,7 +2,8 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ProfileController;
-use App\Http\Controllers\UserController;
+use App\http\Controllers\UserController;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -20,7 +21,8 @@ Route::get('/', function () {
 });
 
 Route::get('/profile/{nama}/{npm}/{kelas}', [ProfileController::class, 'profile']);
-
-Route::get('/user', [UserController::class, 'index']);
-Route::get('/user/create', [UserController::class, 'create']);
-Route::get('/user', [UserController::class, 'store']);
+Route::get('/user', [UserController::class, 'index'])->name('users.index');
+Route::get('/user',[UserController::class,'index']);
+Route::get('/user/create',[UserController::class,'Create']);
+Route::post('/user',[UserController::class,'store']);
+Route::post('/user', [UserController::class, 'store'])->name('users.store');

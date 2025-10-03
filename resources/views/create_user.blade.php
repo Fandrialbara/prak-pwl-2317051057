@@ -1,45 +1,35 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Kartu Profil</title>
-  <style>
-    body {
-      font-family: Arial, sans-serif;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      height: 100vh;
-      background-color: #f9f9f9;
-    }
-    .card {
-      text-align: center;
-    }
-    .profile-img {
-      width: 500px;   
-      height: 600px;
-      border-radius: 100%;   
-      border: 4px solid #999;
-      object-fit: cover;    
-      margin-bottom: 20px;
-    }
-    .info {
-      background: #d3d3d3;
-      padding: 10px;
-      margin: 8px 0;
-      border-radius: 5px;
-      font-weight: bold;
-    }
-  </style>
-</head>
-<body>
-  <div class="card">
-    
-    <img src="{{ asset('images/IMG_20230512_200700.jpg') }}" alt="Profile Image" class="profile-img"/>
-    <div class="info">Nama : Fandri Albara</div>
-    <div class="info">Kelas : A</div>
-    <div class="info">NPM : 2317051057</div>
-  </div>
-</body>
-</html>
+@extends('layouts.app')
+
+@section('content')
+    <h1 style="text-align:center; color:#444;">Form Tambah Pengguna</h1>
+
+    <div style="max-width: 500px; margin: 20px auto; padding: 20px; background: #fff; border-radius: 8px; box-shadow: 0 2px 8px rgba(0,0,0,0.1);">
+        <form action="{{ route('users.store') }}" method="POST">
+            @csrf
+
+            <div style="margin-bottom: 15px;">
+                <label for="nama" style="display:block; font-weight:bold; margin-bottom:5px;">Nama</label>
+                <input type="text" name="nama" id="nama" required
+                       style="width:100%; padding:10px; border:1px solid #ccc; border-radius:5px;">
+            </div>
+
+            <div style="margin-bottom: 15px;">
+                <label for="nim" style="display:block; font-weight:bold; margin-bottom:5px;">NPM</label>
+                <input type="text" name="nim" id="nim" required
+                       style="width:100%; padding:10px; border:1px solid #ccc; border-radius:5px;">
+            </div>
+
+            <div style="margin-bottom: 15px;">
+                <label for="nama_kelas" style="display:block; font-weight:bold; margin-bottom:5px;">Kelas</label>
+                <input type="text" name="nama_kelas" id="nama_kelas" required
+                       style="width:100%; padding:10px; border:1px solid #ccc; border-radius:5px;">
+            </div>
+
+            <button type="submit"
+                    style="background:#4CAF50; color:white; padding:10px 20px; border:none; border-radius:5px; cursor:pointer;">
+                Simpan
+            </button>
+           
+        </form>
+    </div>
+@endsection
