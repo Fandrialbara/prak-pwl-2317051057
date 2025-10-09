@@ -17,11 +17,11 @@
       text-align: center;
     }
     .profile-img {
-      width: 250px;   /* ukuran standar profile card */
-      height: 300px;
-      border-radius: 50%;   /* bulat */
+      width: 500px;   
+      height: 60000px;
+      border-radius: 100%;   
       border: 4px solid #999;
-      object-fit: cover;    /* agar gambar tidak gepeng */
+      object-fit: cover;    
       margin-bottom: 20px;
     }
     .info {
@@ -35,7 +35,7 @@
 </head>
 <body>
   <div class="card">
-    <!-- Ganti path sesuai foto Anda -->
+    
     <img src="{{ asset('images/IMG_20230512_200700.jpg') }}" alt="Profile Image" class="profile-img"/>
     <div class="info">Nama : Fandri Albara</div>
     <div class="info">Kelas : A</div>
