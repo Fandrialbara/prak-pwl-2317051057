@@ -2,8 +2,8 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ProfileController;
-use App\http\Controllers\UserController;
-
+use App\Http\Controllers\UserController;
+use App\Http\Controllers\MataKuliahController;
 
 /*
 |--------------------------------------------------------------------------
@@ -26,3 +26,6 @@ Route::get('/user',[UserController::class,'index']);
 Route::get('/user/create',[UserController::class,'Create']);
 Route::post('/user',[UserController::class,'store']);
 Route::post('/user', [UserController::class, 'store'])->name('users.store');
+Route::get('/matakuliah', [MataKuliahController::class, 'index']);
+Route::get('/matakuliah/create', [MataKuliahController::class, 'create'])->name('matakuliah.create');
+Route::post('/matakuliah', [MataKuliahController::class, 'store'])->name('matakuliah.store');
