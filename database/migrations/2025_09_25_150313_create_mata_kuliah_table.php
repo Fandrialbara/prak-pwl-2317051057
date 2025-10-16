@@ -9,15 +9,16 @@ return new class extends Migration
     /**
      * Run the migrations.
      */
-    public function up(): void
-    {
-        Schema::create('mata_kuliah', function (Blueprint $table) {
-            $table->id(); // primary key otomatis
-            $table->string('nama_mk'); // nama mata kuliah
-            $table->integer('sks');    // jumlah sks
-            $table->timestamps();      // created_at dan updated_at
-        });
-    }
+   public function up(): void
+{
+    Schema::create('mata_kuliah', function (Blueprint $table) {
+        $table->uuid('id')->primary();
+        $table->string('nama_mk', 100);
+        $table->integer('sks');
+        $table->timestamps();
+    });
+}
+
 
     /**
      * Reverse the migrations.
@@ -27,4 +28,3 @@ return new class extends Migration
         Schema::dropIfExists('mata_kuliah');
     }
 };
-

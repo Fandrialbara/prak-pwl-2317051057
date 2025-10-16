@@ -22,6 +22,4 @@ class UserModel extends Model
                     ->select('user.*', 'kelas.nama_kelas as nama_kelas')
                     ->get();
     }
-
-
 }
