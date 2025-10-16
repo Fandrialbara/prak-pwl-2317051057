@@ -4,7 +4,7 @@
     <h1 style="text-align:center; color:#444;">Form Tambah Pengguna</h1>
 
     <div style="max-width: 500px; margin: 20px auto; padding: 20px; background: #fff; border-radius: 8px; box-shadow: 0 2px 8px rgba(0,0,0,0.1);">
-        <form action="{{ route('users.store') }}" method="POST">
+        <form action="{{ route('user.store') }}" method="POST">
             @csrf
 
             <div style="margin-bottom: 15px;">

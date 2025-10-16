@@ -3,35 +3,52 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Models\Matakuliah;
+use App\Models\MataKuliah;
 
 class MataKuliahController extends Controller
 {
-    // d. Menampilkan daftar mata kuliah
-    public function index()
-    {
+    public function index(){
         $data = [
-            'title' => 'List Mata Kuliah',
-            'mks' => Matakuliah::all(),
+            'title' => 'Mata Kuliah',
+            'mks' => MataKuliah::all(),
         ];
-
         return view('list_mk', $data);
     }
 
-    // e. Menampilkan form input mata kuliah baru
-    public function create()
-    {
+    public function create(){
         return view('create_mk', ['title' => 'Create Mata Kuliah']);
     }
 
-    // f. Menyimpan data mata kuliah baru
-    public function store(Request $request)
-    {
-        Matakuliah::create([
+    public function store(Request $request){
+        MataKuliah::create([
             'nama_mk' => $request->input('nama_mk'),
             'sks' => $request->input('sks'),
         ]);
+        return redirect()->to('/mata-kuliah');
+    }
 
-        return redirect()->to('/matakuliah');
+    public function edit($id){
+        $mk = MataKuliah::findorFail($id);
+        return view('edit_mk', ['title' => 'EDIT MATA KULIAH', 'mk' => $mk]);
+    }
+
+    public function update(Request $request, $id){
+        $request->validate([
+            'nama_mk' => 'required',
+            'sks' => 'required|integer|min:1|max:6',
+        ]);
+
+        $mk = MataKuliah::findorFail($id);
+        $mk->update([
+             'nama_mk' => $request->input('nama_mk'),
+             'sks' => $request->input('sks'),
+        ]);
+    }
+
+    public function destroy($id){
+        $mk = MataKuliah::findorFail($id);
+        $mk->delete();
+
+        return redirect()->to('/mata-kuliah')->with('success', 'Data Berhasil Dihapus');
     }
 }
