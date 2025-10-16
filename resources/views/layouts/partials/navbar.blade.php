@@ -4,7 +4,7 @@
     </div>
     <ul>
         <li><a href="/">Home</a></li>
-        <li><a href="/users">Daftar User</a></li>
-        <li><a href="/users/create">Tambah User</a></li>
+        <li><a href="/user">Daftar User</a></li>
+        <li><a href="/user/create">Tambah User</a></li>
     </ul>
 </nav>
